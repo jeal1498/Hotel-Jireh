@@ -1,0 +1,20 @@
+{
+  "extraKnownMarketplaces": {
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "claude-seo": {
+      "source": {
+        "source": "github",
+        "repo": "AgricIDaniel/claude-seo"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "impeccable@impeccable": true,
+    "claude-seo@claude-seo": true
+  }
+}
