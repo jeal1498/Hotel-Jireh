@@ -1,0 +1,447 @@
+{
+  "summary": {
+    "health_score": 62,
+    "business_type": "Hotel local — Turismo / Hospitalidad (Bacalar, Quintana Roo, México)",
+    "domain": "hoteljirehbacalar.com",
+    "audit_date": "2026-06-22",
+    "pages_crawled": 1,
+    "site_type": "Single-page static HTML",
+    "language": "es-MX",
+    "top_findings": [
+      "robots.txt y sitemap.xml ausentes — crawlers sin orientación",
+      "11/11 imágenes sin width/height — CLS crítico",
+      "Fuentes personalizadas declaradas pero no cargadas (Inter Body, Fraunces Display)",
+      "Menú móvil oculto en <760px sin hamburger toggle",
+      "Sin Google Analytics ni Search Console — sin datos de rendimiento",
+      "Google Business Profile no vinculado — invisibilidad en Maps"
+    ],
+    "quick_wins": [
+      "Crear robots.txt (5 minutos)",
+      "Crear sitemap.xml (10 minutos)",
+      "Agregar loading='lazy' a 9 imágenes (20 minutos)",
+      "Agregar width/height a 11 imágenes (30 minutos)",
+      "Agregar <link rel='preload'> para imagen hero (5 minutos)",
+      "Agregar twitter:image meta tag (2 minutos)",
+      "Crear llms.txt (15 minutos)",
+      "Corregir og:type a 'website' (2 minutos)",
+      "Agregar image y sameAs al schema Hotel (15 minutos)",
+      "Agregar preconnect a Google Fonts + cargar fuentes (20 minutos)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 48,
+      "weight": 0.22,
+      "what_works": [
+        "lang='es-MX' correcto",
+        "Meta viewport presente",
+        "URL canónica correcta",
+        "Skip link de accesibilidad",
+        "HTML5 semántico (header/main/footer/nav/section)",
+        "HTTPS en canonical",
+        "Sin JavaScript externo"
+      ],
+      "findings": [
+        {
+          "title": "robots.txt ausente",
+          "severity": "Critical",
+          "description": "No existe /robots.txt en el repositorio. Sin él, los crawlers no tienen directivas ni ruta al sitemap.",
+          "recommendation": "Crear robots.txt con User-agent: *, Allow: /, Sitemap: https://www.hoteljirehbacalar.com/sitemap.xml"
+        },
+        {
+          "title": "sitemap.xml ausente",
+          "severity": "Critical",
+          "description": "Sin sitemap, imposible enviar el sitio a Google Search Console y la indexación depende del crawl orgánico.",
+          "recommendation": "Crear sitemap.xml con la URL canónica, lastmod=2026-06-22, changefreq=monthly"
+        },
+        {
+          "title": "Fuentes personalizadas no cargadas",
+          "severity": "High",
+          "description": "CSS usa 'Inter Body' y 'Fraunces Display' pero no hay @font-face ni CDN de fuentes. El browser usa system fonts.",
+          "recommendation": "Agregar Google Fonts con font-display:swap para Inter y Fraunces"
+        },
+        {
+          "title": "Menú móvil roto (<760px)",
+          "severity": "High",
+          "description": "nav.main-nav{display:none} en <760px sin menú alternativo. Navegación desaparece en smartphones.",
+          "recommendation": "Implementar hamburger toggle con CSS puro o JavaScript mínimo"
+        },
+        {
+          "title": "Sin Google Analytics ni Search Console",
+          "severity": "High",
+          "description": "No hay GTM, GA4 ni meta de verificación GSC. Imposible medir tráfico, conversiones o errores de indexación.",
+          "recommendation": "Instalar GA4 via GTM, verificar GSC con meta tag"
+        },
+        {
+          "title": "Favicon ausente",
+          "severity": "Medium",
+          "description": "No hay <link rel='icon'> ni /favicon.ico.",
+          "recommendation": "Generar favicon desde el logo en 16x16, 32x32, 180x180 y agregar tags en <head>"
+        },
+        {
+          "title": "Sin preload para imagen LCP",
+          "severity": "Medium",
+          "description": "facade-day.jpg (176KB) es candidato LCP pero no está precargada.",
+          "recommendation": "<link rel='preload' href='images/facade-day.jpg' as='image' fetchpriority='high'>"
+        },
+        {
+          "title": "llms.txt ausente",
+          "severity": "Medium",
+          "description": "Sin /llms.txt los crawlers de IA no tienen contexto estructurado del negocio.",
+          "recommendation": "Crear /llms.txt con información del hotel en formato plano y estructurado"
+        }
+      ]
+    },
+    {
+      "name": "Content Quality (E-E-A-T)",
+      "score": 68,
+      "weight": 0.23,
+      "what_works": [
+        "Estructura H1→H2→H3 correcta",
+        "H1 con keyword principal de Bacalar",
+        "Precios explícitos ($600/$850/$950 MXN)",
+        "Contacto visible (tel/WhatsApp/email)",
+        "FAQ con 6 preguntas de alta intención",
+        "Distancias exactas a atracciones",
+        "Lenguaje claro y accesible"
+      ],
+      "findings": [
+        {
+          "title": "Sin sección 'Acerca de' ni historia del hotel",
+          "severity": "High",
+          "description": "No hay información sobre historia, fundación ni propietarios. E-E-A-T débil.",
+          "recommendation": "Agregar párrafo de 3-4 oraciones con historia del hotel y familia propietaria"
+        },
+        {
+          "title": "Reseñas sin fuente verificable",
+          "severity": "High",
+          "description": "'7.2/10 en 142 reseñas' sin indicar la plataforma ni enlace. Las reseñas no son citables por motores de IA.",
+          "recommendation": "Indicar fuente: 'en Booking.com' y agregar enlace. O usar widget embebido de Google Reviews."
+        },
+        {
+          "title": "Habitación Familiar usa foto de palapa",
+          "severity": "High",
+          "description": "La tarjeta de Habitación Familiar muestra foto de palapa, no de la habitación.",
+          "recommendation": "Fotografiar habitación familiar y actualizar imagen en la tarjeta"
+        },
+        {
+          "title": "Meta description demasiado larga (240 chars)",
+          "severity": "Medium",
+          "description": "Google trunca a ~155-160 chars. El CTA de reserva queda cortado.",
+          "recommendation": "Reducir a ~155 chars: 'Hotel Jireh: hospedaje familiar en Bacalar, QR. Habitaciones desde $600/noche con A/C, alberca, wifi y estacionamiento. Reserva por WhatsApp.'"
+        },
+        {
+          "title": "Title tag demasiado largo (82 chars)",
+          "severity": "Medium",
+          "description": "Google trunca títulos alrededor de 60 chars / 580px.",
+          "recommendation": "'Hotel Jireh Bacalar | Hospedaje Económico cerca de la Laguna' (~62 chars)"
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 70,
+      "weight": 0.20,
+      "what_works": [
+        "1 H1 único y relevante",
+        "Alt text en todas las imágenes (11/11)",
+        "Canonical tag presente",
+        "OG tags completos (excepto og:type no estándar)",
+        "NAP consistente en schema y footer",
+        "Links internos (navegación ancla)"
+      ],
+      "findings": [
+        {
+          "title": "og:type con valor no estándar",
+          "severity": "Medium",
+          "description": "'lodging.hotel' no es un tipo válido en el protocolo Open Graph. Facebook/LinkedIn pueden ignorarlo.",
+          "recommendation": "Cambiar a <meta property='og:type' content='website'>"
+        },
+        {
+          "title": "twitter:image ausente",
+          "severity": "Medium",
+          "description": "Twitter Card completa pero sin imagen. Al compartir en X, solo aparece texto.",
+          "recommendation": "<meta name='twitter:image' content='https://www.hoteljirehbacalar.com/images/facade-day.jpg'>"
+        },
+        {
+          "title": "Sin enlace a Google Maps en contenido",
+          "severity": "Medium",
+          "description": "La sección de ubicación no tiene enlace a Google Maps ni embed.",
+          "recommendation": "Agregar enlace 'Ver en Google Maps' y considerar iframe embed"
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 72,
+      "weight": 0.10,
+      "what_works": [
+        "Hotel schema completo con 13 campos",
+        "GeoCoordinates exactas",
+        "aggregateRating presente",
+        "FAQPage con 6 preguntas estructuradas",
+        "makesOffer con 3 tipos de habitación y precios",
+        "nearbyAttraction con 5 atracciones",
+        "amenityFeature con 8 amenidades"
+      ],
+      "findings": [
+        {
+          "title": "Propiedad 'image' ausente en Hotel schema",
+          "severity": "High",
+          "description": "Google necesita 'image' para Knowledge Panel y rich results de hotel.",
+          "recommendation": "Agregar array de URLs de imágenes: facade-day.jpg, pool.jpg, room-king.jpg"
+        },
+        {
+          "title": "Propiedad 'sameAs' ausente",
+          "severity": "High",
+          "description": "Sin sameAs, Google no conecta la entidad con Facebook, GBP ni OTAs.",
+          "recommendation": "Agregar array con URLs de Facebook y Google Maps Place"
+        },
+        {
+          "title": "og:type no estándar ('lodging.hotel')",
+          "severity": "Medium",
+          "description": "Open Graph no soporta este tipo. Debe ser 'website'.",
+          "recommendation": "Cambiar content a 'website'"
+        },
+        {
+          "title": "hasMap ausente",
+          "severity": "Medium",
+          "description": "Los motores de IA no pueden proporcionar enlace al mapa al citar el hotel.",
+          "recommendation": "Agregar 'hasMap': 'https://maps.google.com/?q=Hotel+Jireh+Bacalar'"
+        },
+        {
+          "title": "starRating '2' — verificar si es categorización oficial",
+          "severity": "Medium",
+          "description": "Si no es categorización oficial de Sectur, puede ser engañoso. Google muestra 2★ en resultados.",
+          "recommendation": "Eliminar starRating si no hay categorización oficial. Si la hay, documentar la fuente."
+        },
+        {
+          "title": "twitter:image ausente",
+          "severity": "Medium",
+          "description": "Twitter Card sin imagen.",
+          "recommendation": "Agregar meta name='twitter:image'"
+        }
+      ]
+    },
+    {
+      "name": "Performance (Core Web Vitals)",
+      "score": 45,
+      "weight": 0.10,
+      "what_works": [
+        "Sin JavaScript — TTI inmediato",
+        "CSS inline — 0 bloqueo por stylesheet externo",
+        "HTML ligero (32KB)",
+        "Sin frameworks pesados"
+      ],
+      "findings": [
+        {
+          "title": "11/11 imágenes sin width y height",
+          "severity": "Critical",
+          "description": "Sin dimensiones explícitas, el navegador no reserva espacio → CLS alto (estimado >0.1).",
+          "recommendation": "Agregar width y height a todas las imágenes según sus dimensiones reales"
+        },
+        {
+          "title": "Imagen LCP sin preload (facade-day.jpg 176KB)",
+          "severity": "High",
+          "description": "LCP estimado 2.5-4s sin preload. Google marca como 'Necesita mejorar' (>2.5s).",
+          "recommendation": "<link rel='preload' href='images/facade-day.jpg' as='image' fetchpriority='high'>"
+        },
+        {
+          "title": "0/7 imágenes en WebP/AVIF",
+          "severity": "High",
+          "description": "Peso total de imágenes: ~560KB. WebP reduciría a ~350KB (-37%).",
+          "recommendation": "Convertir a WebP con <picture> y fallback JPG"
+        },
+        {
+          "title": "9/11 imágenes sin loading='lazy'",
+          "severity": "High",
+          "description": "Todas las imágenes below-fold cargan al inicio, bloqueando recursos críticos.",
+          "recommendation": "Agregar loading='lazy' a todas excepto la imagen hero"
+        },
+        {
+          "title": "Fuentes no cargadas (FOUT/CLS)",
+          "severity": "High",
+          "description": "Inter Body y Fraunces Display declaradas en CSS pero no cargadas. CLS por font swap.",
+          "recommendation": "Cargar fuentes desde Google Fonts con font-display:swap y preconnect"
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO)",
+      "score": 78,
+      "weight": 0.10,
+      "what_works": [
+        "FAQPage schema con 6 preguntas específicas",
+        "Hotel schema con datos factuales completos",
+        "Coordenadas GPS exactas",
+        "Precios MXN específicos por tipo de habitación",
+        "Distancias exactas a atracciones",
+        "HTML semántico parseable sin JS",
+        "NAP consistente"
+      ],
+      "findings": [
+        {
+          "title": "llms.txt ausente",
+          "severity": "High",
+          "description": "Sin /llms.txt los crawlers de LLMs (Perplexity, ChatGPT) no tienen contexto optimizado del negocio.",
+          "recommendation": "Crear /llms.txt con información del hotel en formato plano estructurado"
+        },
+        {
+          "title": "Google Business Profile no vinculado",
+          "severity": "High",
+          "description": "Google AI Overviews usa datos de GBP para consultas locales. Sin GBP vinculado en sameAs, el hotel puede no aparecer en AI Overviews.",
+          "recommendation": "Vincular GBP en schema sameAs y actualizar ficha de GBP con fotos y horarios"
+        },
+        {
+          "title": "Sin menciones en directorios de viajes",
+          "severity": "Medium",
+          "description": "Los LLMs aprenden de Booking.com y TripAdvisor. Sin presencia consolidada allí, las citas de IA son menos frecuentes.",
+          "recommendation": "Asegurar ficha completa en Booking.com y TripAdvisor, y enlazar desde el sitio"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 40,
+      "weight": 0.05,
+      "what_works": [
+        "7/7 imágenes con alt text descriptivo",
+        "Nombres de archivo semánticos (no img001.jpg)",
+        "Alt text incluye keywords de ubicación"
+      ],
+      "findings": [
+        {
+          "title": "Logo en formato JPG (no SVG/PNG)",
+          "severity": "Critical",
+          "description": "JPG no soporta transparencia. Logo se ve mal sobre fondos de color. Sin nitidez en pantallas Retina.",
+          "recommendation": "Convertir logo a SVG o PNG con fondo transparente. Peso objetivo: <5KB"
+        },
+        {
+          "title": "0/7 imágenes en WebP/AVIF",
+          "severity": "Critical",
+          "description": "Peso total ~560KB. WebP ahorraría ~210KB (-37%).",
+          "recommendation": "Convertir todas las imágenes a WebP con fallback JPG via <picture>"
+        },
+        {
+          "title": "0/11 imágenes con width y height",
+          "severity": "High",
+          "description": "CLS crítico por falta de reserva de espacio.",
+          "recommendation": "Agregar dimensiones explícitas a todos los <img>"
+        },
+        {
+          "title": "Sin srcset para responsividad",
+          "severity": "High",
+          "description": "Una sola versión de imagen para todos los dispositivos.",
+          "recommendation": "Generar versiones 400w/800w/1200w y usar srcset+sizes"
+        },
+        {
+          "title": "Foto de palapa usada para Habitación Familiar",
+          "severity": "Medium",
+          "description": "Imagen incorrecta en tarjeta de habitación. Reduce conversión.",
+          "recommendation": "Fotografiar habitación familiar y actualizar imagen"
+        }
+      ]
+    },
+    {
+      "name": "Local SEO",
+      "score": 62,
+      "weight": 0.0,
+      "what_works": [
+        "NAP consistente en schema y footer",
+        "GeoCoordinates en schema",
+        "Código postal correcto (77930)",
+        "Mención 'Pueblo Mágico'",
+        "Atracciones cercanas con distancias",
+        "WhatsApp flotante activo"
+      ],
+      "findings": [
+        {
+          "title": "Google Business Profile no vinculado ni mencionado",
+          "severity": "Critical",
+          "description": "GBP es el factor #1 para Local Pack de Google Maps. Sin GBP, el hotel no aparece en búsquedas locales en Maps.",
+          "recommendation": "Reclamar/verificar GBP, completar datos y vincular URL en sameAs del schema"
+        },
+        {
+          "title": "Sin mapa embed en sección de ubicación",
+          "severity": "High",
+          "description": "Los usuarios no pueden visualizar la ubicación. Aumenta fricción.",
+          "recommendation": "Agregar iframe de Google Maps con el Place del hotel"
+        },
+        {
+          "title": "Sin widget de reseñas verificadas",
+          "severity": "High",
+          "description": "'7.2/10 en 142 reseñas' sin fuente ni enlace. No citables.",
+          "recommendation": "Agregar badge con enlace a Booking.com/Google con calificación"
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Fase 1: Críticos — Esta semana",
+        "timeframe": "Días 1-3",
+        "items": [
+          "Crear /robots.txt con User-agent: *, Allow: /, Sitemap:",
+          "Crear /sitemap.xml con URL canónica y lastmod",
+          "Agregar width y height a los 11 <img> del HTML",
+          "Agregar loading='lazy' a 9 imágenes below-fold",
+          "Agregar <link rel='preload'> para facade-day.jpg",
+          "Implementar menú hamburger para móviles (<760px)",
+          "Cargar fuentes Inter + Fraunces Display desde Google Fonts",
+          "Reclamar y verificar Google Business Profile"
+        ]
+      },
+      {
+        "name": "Fase 2: Alto Impacto — Semanas 2-3",
+        "timeframe": "Días 4-14",
+        "items": [
+          "Convertir imágenes a WebP y usar <picture> con fallback JPG",
+          "Agregar 'image' y 'sameAs' al schema Hotel",
+          "Agregar 'hasMap', 'currenciesAccepted', 'paymentAccepted' al schema",
+          "Corregir og:type a 'website'",
+          "Agregar twitter:image meta tag",
+          "Crear /llms.txt con información del hotel",
+          "Instalar Google Analytics 4 y verificar Search Console",
+          "Agregar iframe de Google Maps en sección de ubicación",
+          "Reducir title tag a <60 chars y meta description a <155 chars",
+          "Convertir logo a SVG o PNG con fondo transparente"
+        ]
+      },
+      {
+        "name": "Fase 3: Contenido y Autoridad — Mes 2",
+        "timeframe": "Semanas 3-6",
+        "items": [
+          "Agregar sección 'Acerca del Hotel' con historia y propietarios",
+          "Fotografiar habitación familiar y actualizar imagen",
+          "Agregar badge de reseñas con enlace verificado (Booking.com/Google)",
+          "Crear y optimizar fichas en Booking.com y TripAdvisor",
+          "Agregar política de cancelación en FAQ",
+          "Crear imagen OG optimizada 1200×630px",
+          "Agregar enlace 'Ver en Google Maps' en sección de ubicación",
+          "Crear srcset para imágenes responsivas (400w/800w/1200w)",
+          "Agregar sección 'Cómo llegar' con instrucciones detalladas",
+          "Crear perfil de Instagram y enlazar desde el sitio",
+          "Agregar favicon en múltiples tamaños"
+        ]
+      },
+      {
+        "name": "Fase 4: Monitoreo Continuo",
+        "timeframe": "Mensual",
+        "items": [
+          "Revisar Google Search Console: errores de rastreo, indexación",
+          "Analizar Google Analytics: tráfico orgánico, conversiones WhatsApp",
+          "Solicitar reseñas a huéspedes tras check-out",
+          "Actualizar precios en schema y HTML si cambian",
+          "Publicar en Instagram para señales de marca",
+          "Verificar Core Web Vitals en PageSpeed Insights"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
